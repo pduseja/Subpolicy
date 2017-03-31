@@ -22,14 +22,14 @@ public class PolicyServiceImpl implements PolicyService {
 	@Override
 	public List<Policy> getAllPolicy(User user) {
 		RestTemplate restTemplate = new RestTemplate();
-		List<Policy> policies = (List<Policy>) restTemplate.postForObject("http://localhost:8080/qqGetAllPolicy", user, List.class);
+		List<Policy> policies = (List<Policy>) restTemplate.postForObject("http://localhost:8090/qqGetAllPolicy", user, List.class);
 		return policies;
 	}
 	
 	@Override
 	public Policy getPolicy(Policy policy) {
 		RestTemplate restTemplate = new RestTemplate();
-		Policy pol = (Policy) restTemplate.postForObject("http://localhost:8080/qqGetPolicy", policy, Policy.class);
+		Policy pol = (Policy) restTemplate.postForObject("http://localhost:8090/qqGetPolicy", policy, Policy.class);
 		return pol;
 	}
 
