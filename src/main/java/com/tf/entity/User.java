@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
 
 @Entity
 public class User {
@@ -15,7 +16,6 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="USERID")
 	private Integer userId;
-	
 	
 	@Column(name="USERNAME")
 	private String userName;
@@ -33,13 +33,41 @@ public class User {
 	private Integer age;
 	
 	@Column(name="DATE_OF_BIRTH")
+        @Temporal(javax.persistence.TemporalType.DATE)
 	private Date dob;
 	
 	@Column(name="SMOKER_FLAG")
-	private Character smokerFlag;
+	private String smokerFlag;
 	
 	@Column(name="STATE")
 	private String state;
+	
+	@Column(name="HEIGHT")
+	private Float height;
+	
+	@Column(name="WEIGHT")
+	private Float weight;
+	
+	@Column(name="GENDER")
+	private String gender;
+	
+	@Column(name="HEALTH")
+	private String health;
+	
+	
+	public String getHealth() {
+		return health;
+	}
+	public void setHealth(String health) {
+		this.health = health;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	
 	
 	public String getUserName() {
 		return userName;
@@ -71,10 +99,10 @@ public class User {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	public Character getSmokerFlag() {
+	public String getSmokerFlag() {
 		return smokerFlag;
 	}
-	public void setSmokerFlag(Character smokerFlag) {
+	public void setSmokerFlag(String smokerFlag) {
 		this.smokerFlag = smokerFlag;
 	}
 	public String getState() {
@@ -83,10 +111,33 @@ public class User {
 	public void setState(String state) {
 		this.state = state;
 	}
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	public Float getHeight() {
+		return height;
+	}
+	public void setHeight(Float height) {
+		this.height = height;
+	}
+	public Float getWeight() {
+		return weight;
+	}
+	public void setWeight(Float weight) {
+		this.weight = weight;
+	}
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
+	
+	
+	
 }
