@@ -15,10 +15,10 @@ public class PolicyServiceImpl implements PolicyService {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Policy> getAllPolicy(User user) {
+	public Policy getSubPolicy(Policy policy) {
 		RestTemplate restTemplate = new RestTemplate();
-		List<Policy> policies = (List<Policy>) restTemplate.postForObject("http://localhost:8090/qqGetAllPolicy", user, List.class);
-		return policies;
+		Policy pol = (Policy) restTemplate.postForObject("http://localhost:8090/qqGetPolicy", policy, Policy.class);
+		return pol;
 	}
 
 }
