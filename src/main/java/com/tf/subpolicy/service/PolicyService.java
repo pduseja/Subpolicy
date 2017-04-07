@@ -7,5 +7,5 @@ import com.tf.subpolicy.entity.User;
 
 public interface PolicyService {
 	
-	public List<Policy> getAllPolicy(User user);
+	public Policy getSubPolicy(Policy policy);
 }
