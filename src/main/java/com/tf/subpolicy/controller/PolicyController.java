@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tf.subpolicy.entity.Policy;
-import com.tf.subpolicy.entity.User;
 import com.tf.subpolicy.service.PolicyService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 @RestController
@@ -23,18 +23,17 @@ public class PolicyController {
 	@Autowired
 	private PolicyService policyService;
 	
-	@RequestMapping(value="/getAllPolicy",method=RequestMethod.POST)
-	public List<Policy> getAllPolicy(@RequestBody User user) {
-		
-		log.info("Get All Policy Service Started");
-		List<Policy> policies = null;
+        @CrossOrigin(origins = "*")
+	@RequestMapping(value="/getSubPolicy",method=RequestMethod.POST)
+	public Policy getPolicy(@RequestBody Policy policy) {
+		log.info("Get Policy Service Started");
 		try {
-			policies = policyService.getAllPolicy(user);
+			policy = policyService.getSubPolicy(policy);
 		} catch(Exception exception) {
-			log.error("Exception Occured while executing Get All Policies Service.\n" + exception);
+			log.error("Exception Occured while executing Get Policy Service.\n" + exception);
 		}
-		log.info("Get All Policy Service Ended");
-		return policies;
+		log.info("Get Policy Service Ended");
+		return policy;
 	}
 	
 }
